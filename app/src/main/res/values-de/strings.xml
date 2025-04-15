@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Schnelleinstellungen für optimiertes Laden</string>
-    <string name="adaptive_charging">Adaptives laden</string>
+    <string name="adaptive_charging">Adaptives Laden</string>
     <string name="limit_to_80">Bis 80% laden</string>
     <string name="deactivated">Aus</string>
     <string name="charging_optimization">Optimiertes Laden</string>

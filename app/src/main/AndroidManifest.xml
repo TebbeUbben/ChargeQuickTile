@@ -50,7 +50,7 @@
             android:name=".UpdaterService"
             android:foregroundServiceType="specialUse">
             <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="This foreground service keeps the app process alive, so that QS tile is properly updated in the background."/>
+                android:value="This foreground service keeps the app process alive, so that the QS tile is properly updated in the background."/>
         </service>
 
         <receiver
