@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Charging Optimization Quick Settings Tile</string>
+    <string name="adaptive_charging">Adaptive Charging</string>
+    <string name="limit_to_80">Limit to 80%</string>
+    <string name="deactivated">Off</string>
+    <string name="charging_optimization">Charging Optimization</string>
+    <string name="foreground_notification">Background service active</string>
+    <string name="you_can_hide_this_notification">You can hide this notification.</string>
+</resources>

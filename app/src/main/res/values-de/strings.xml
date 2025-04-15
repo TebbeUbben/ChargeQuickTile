@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Schnelleinstellungen für optimiertes Laden</string>
+    <string name="adaptive_charging">Adaptives laden</string>
+    <string name="limit_to_80">Bis 80% laden</string>
+    <string name="deactivated">Aus</string>
+    <string name="charging_optimization">Optimiertes Laden</string>
+    <string name="foreground_notification">Hintergrunddienst aktiv</string>
+    <string name="you_can_hide_this_notification">Du kannst diese Benachrichtigung verstecken.</string>
+</resources>
