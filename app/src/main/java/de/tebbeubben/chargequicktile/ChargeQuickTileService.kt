@@ -1,9 +1,10 @@
 package de.tebbeubben.chargequicktile
 
+import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 
-class ChargeQuickTileService : TileService(), ChargeSettings.Observer {
+class ChargeQuickTileService : TileService() {
 
     private lateinit var app: ChargeQuickTileApp
 
@@ -12,25 +13,43 @@ class ChargeQuickTileService : TileService(), ChargeSettings.Observer {
     }
 
     override fun onTileAdded() {
-        app.updateSettingValues()
         updateTile()
     }
 
     override fun onStartListening() {
-        app.observers += this
-        app.updateSettingValues()
+        app.tileService = this
+        updateTile()
     }
 
     override fun onStopListening() {
-        app.observers -= this
+        app.tileService = null
     }
 
     override fun onClick() {
-        app.toggleChargingMode()
+        val adaptiveChargingEnabled = Settings.Secure.getInt(contentResolver, ADAPTIVE_CHARGING_SETTING) == 1
+        val chargeOptimizationEnabled = Settings.Secure.getInt(contentResolver, CHARGE_OPTIMIZATION_MODE) == 1
+        when {
+            adaptiveChargingEnabled -> {
+                Settings.Secure.putInt(contentResolver, CHARGE_OPTIMIZATION_MODE, 1)
+                Settings.Secure.putInt(contentResolver, ADAPTIVE_CHARGING_SETTING, 0)
+            }
+
+            chargeOptimizationEnabled -> {
+                Settings.Secure.putInt(contentResolver, CHARGE_OPTIMIZATION_MODE, 0)
+                Settings.Secure.putInt(contentResolver, ADAPTIVE_CHARGING_SETTING, 0)
+            }
+
+            else -> {
+                Settings.Secure.putInt(contentResolver, CHARGE_OPTIMIZATION_MODE, 0)
+                Settings.Secure.putInt(contentResolver, ADAPTIVE_CHARGING_SETTING, 1)
+            }
+        }
+        updateTile()
     }
 
-    private fun updateTile() {
-        val (adaptiveChargingEnabled, chargeOptimizationEnabled) = app.settingsValues
+    fun updateTile() {
+        val adaptiveChargingEnabled = Settings.Secure.getInt(contentResolver, ADAPTIVE_CHARGING_SETTING) == 1
+        val chargeOptimizationEnabled = Settings.Secure.getInt(contentResolver, CHARGE_OPTIMIZATION_MODE) == 1
         qsTile.state = if (chargeOptimizationEnabled || adaptiveChargingEnabled) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
         qsTile.subtitle = when {
             chargeOptimizationEnabled -> getString(R.string.limit_to_80)
@@ -38,10 +57,6 @@ class ChargeQuickTileService : TileService(), ChargeSettings.Observer {
             else -> getString(R.string.deactivated)
         }
         qsTile.updateTile()
-    }
-
-    override fun onSettingsChange(settings: ChargeSettings) {
-        updateTile()
     }
 
 }
