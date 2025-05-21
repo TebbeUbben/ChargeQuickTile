@@ -13,7 +13,7 @@ class SettingsLaunchpadActivity : Activity() {
         val intent = Intent()
         intent.setClassName(
             "com.google.android.settings.intelligence",
-            "com.google.android.settings.intelligence.modules.battery.impl.chargingoptimization.ChargingOptimizationActivityInject"
+            "com.google.android.settings.intelligence.modules.battery.impl.chargingoptimization.ChargingOptimizationActivity"
         )
         //Prevents building up a back stack for subsequent launches of the activity
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)

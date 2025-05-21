@@ -11,6 +11,10 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <queries>
+        <package android:name="com.google.android.settings.intelligence" />
+    </queries>
+
     <application
         android:name=".ChargeQuickTileApp"
         android:allowBackup="false"
