@@ -21,9 +21,13 @@ A lightweight and minimal Android app that allows Google Pixel users (starting f
 ## 🛠️ Setup  
 
 1. **Install the APK**    
- Download and install the latest release.  
+ Download and install the latest release. The APK is test-only and can only be installed via ADB (use the `-t` flag):
+
+  ```bash
+  adb install -t ChargeQuickTile.vX.X.apk
+  ```
   
-2. **Grant Required Permissions via ADB**    
+3. **Grant Required Permissions via ADB**    
  The app needs certain system-level permissions to control charging behavior. Run the following commands:
 
   ```bash
