@@ -16,6 +16,7 @@
     </queries>
 
     <application
+        android:testOnly="true"
         android:name=".ChargeQuickTileApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
