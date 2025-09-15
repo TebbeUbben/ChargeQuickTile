@@ -34,7 +34,7 @@
         <service
             android:name=".ChargeQuickTileService"
             android:exported="true"
-            android:icon="@drawable/ic_battery_profile"
+            android:icon="@drawable/battery_android_frame_full_24px"
             android:label="@string/charging_optimization"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
 

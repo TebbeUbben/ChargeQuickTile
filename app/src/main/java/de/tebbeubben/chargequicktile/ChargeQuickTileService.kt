@@ -1,5 +1,6 @@
 package de.tebbeubben.chargequicktile
 
+import android.graphics.drawable.Icon
 import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
@@ -56,6 +57,11 @@ class ChargeQuickTileService : TileService() {
             adaptiveChargingEnabled -> getString(R.string.adaptive_charging)
             else -> getString(R.string.deactivated)
         }
+        qsTile.icon = Icon.createWithResource(this, when {
+            chargeOptimizationEnabled -> R.drawable.battery_android_frame_shield_24px
+            adaptiveChargingEnabled -> R.drawable.battery_android_frame_plus_24px
+            else -> R.drawable.battery_android_0_24px
+        })
         qsTile.updateTile()
     }
 

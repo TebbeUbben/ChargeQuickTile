@@ -31,7 +31,7 @@ class UpdaterService : Service() {
             .setContentTitle(getString(R.string.foreground_notification))
             .setContentText(getString(R.string.you_can_hide_this_notification))
             .setOngoing(true)
-            .setSmallIcon(R.drawable.ic_battery_profile)
+            .setSmallIcon(R.drawable.battery_android_frame_full_24px)
             .build()
         startForeground(
             NOTIFICATION_ID,
