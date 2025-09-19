@@ -27,7 +27,7 @@ A lightweight and minimal Android app that allows Google Pixel users (starting f
   adb install -t ChargeQuickTile.vX.X.apk
   ```
   
-3. **Grant Required Permissions via ADB**    
+2. **Grant Required Permissions via ADB**    
  The app needs certain system-level permissions to control charging behavior. Run the following commands:
 
   ```bash
@@ -35,13 +35,13 @@ A lightweight and minimal Android app that allows Google Pixel users (starting f
   adb shell pm grant de.tebbeubben.chargequicktile android.permission.POST_NOTIFICATIONS
   ```
 
-4. **Add the Quick Settings Tile**  
+3. **Add the Quick Settings Tile**  
   Pull down your notification shade → Tap the pencil icon to edit tiles → Drag the Charge Optimization tile into your active area.  
   
-5. **Start the Foreground Service**  
+4. **Start the Foreground Service**  
   Long press the tile once after adding it to initialize the foreground service. This is required to ensure reliable background operation and must only be done once. After rebooting the service should be started automatically.
 
-7. **(Optional) Hide the Persistent Notification**  
+5. **(Optional) Hide the Persistent Notification**  
   Go to Settings → Apps → Charge Optimization → Notifications. Disable the Foreground Service notification if you want a cleaner status bar
 
 ## ⚠️ Requirements
